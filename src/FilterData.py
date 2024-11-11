@@ -19,8 +19,11 @@ if __name__=="__main__":
     filtered = None
     if filter == "num":
         filtered = [char for char in data if not str(char).isdigit()]
-    else:
+    elif filter == "letter":
         filtered = [char for char in data if not str(char).isalpha()]
+    else:
+        print("The filter is not supported.")
+        exit()
     
     # Print filtered data in the original type
     reformatted_filtered = ''.join(filtered) if isinstance(data, str) else filtered

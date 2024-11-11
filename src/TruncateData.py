@@ -13,7 +13,10 @@ def truncate(data, start, length):
     keeping only lowercase alphabetic characters.
     Returns: A truncated list or string.
     """
-    truncated_data = data[start:start + length]
+    end_open_border = start + length
+    if end_open_border > len(data):
+        return "Notice: out of range."
+    truncated_data = data[start:start + end_open_border]
     filtered_data = [char for char in truncated_data if str(char).isalpha()]
     
     # Return filtered data in the original type

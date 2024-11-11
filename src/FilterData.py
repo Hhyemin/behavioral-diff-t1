@@ -8,16 +8,12 @@ parser.add_argument("--filter", type=str, help="To filter out 'num' or 'letter'"
 
 def filter_out_nums(data):
     filtered_data = [char for char in data if not str(char).isdigit()]
-    
-    # Return filtered data in the original type
-    return ''.join(filtered_data) if isinstance(data, str) else filtered_data
+    return filtered_data
 
 def filter_out_letters(data):
     filtered_data = [char for char in data if not str(char).isalpha()]
+    return filtered_data
     
-    # Return filtered data in the original type
-    return ''.join(filtered_data) if isinstance(data, str) else filtered_data
-
 if __name__=="__main__":
     args = parser.parse_args()
     try:
@@ -32,4 +28,7 @@ if __name__=="__main__":
         filtered = filter_out_nums(data)
     else:
         filtered = filter_out_letters(data)
-    print(filtered)
+    
+    # Print filtered data in the original type
+    reformatted_filtered = ''.join(filtered) if isinstance(data, str) else filtered
+    print(reformatted_filtered)

@@ -6,18 +6,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--data", help="The original list or string")
 parser.add_argument("--filter", type=str, help="To filter out 'num' or 'letter'")
 
-def filter_out_nums(data):
-    filtered_data = [char for char in data if not str(char).isdigit()]
-    
-    # Return filtered data in the original type
-    return ''.join(filtered_data) if isinstance(data, str) else filtered_data
-
-def filter_out_letters(data):
-    filtered_data = [char for char in data if not str(char).isalpha()]
-    
-    # Return filtered data in the original type
-    return ''.join(filtered_data) if isinstance(data, str) else filtered_data
-
+   
 if __name__=="__main__":
     args = parser.parse_args()
     try:
@@ -29,7 +18,10 @@ if __name__=="__main__":
 
     filtered = None
     if filter == "num":
-        filtered = filter_out_nums(data)
+        filtered = [char for char in data if not str(char).isdigit()]
     else:
-        filtered = filter_out_letters(data)
-    print(filtered)
+        filtered = [char for char in data if not str(char).isalpha()]
+    
+    # Print filtered data in the original type
+    reformatted_filtered = ''.join(filtered) if isinstance(data, str) else filtered
+    print(reformatted_filtered)

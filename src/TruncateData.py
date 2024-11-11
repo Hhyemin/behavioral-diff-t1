@@ -2,7 +2,7 @@ import argparse
 import ast
 
 
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser("Truncate a list or string based on the start position and length")
 parser.add_argument("--data", help="The original list or string")
 parser.add_argument("--start", type=int, help="The position index to start truncation")
 parser.add_argument("--length", type=int, help="The length of expected truncated data")

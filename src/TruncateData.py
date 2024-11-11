@@ -15,7 +15,8 @@ def truncate(data, start, length):
     """
     end_open_border = start + length
     if end_open_border > len(data):
-        return "Notice: out of range."
+        # return "Notice: out of range."
+        end_open_border = len(data)
     truncated_data = data[start:start + end_open_border]
     filtered_data = [char for char in truncated_data if str(char).isalpha()]
     
